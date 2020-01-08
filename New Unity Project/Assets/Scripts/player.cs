@@ -6,7 +6,7 @@ public class player : MonoBehaviour
 {
 
     #region 欄位區域
-    [Header("移動速度")][Range(1, 100)]
+    [Header("移動速度")][Range(1, 1000)]
     public int speed = 10;
     [Tooltip("旋轉速度"), Range(1.5f , 200f)]
     public float turn = 20.5f;
@@ -34,7 +34,7 @@ public class player : MonoBehaviour
     {
         print(other.name);
 
-        if (other.name == "UMP-45" && ani.GetCurrentAnimatorStateInfo(0).IsName("撿東西")) ;
+        if (other.name == "UMP-45" && ani.GetCurrentAnimatorStateInfo(0).IsName("撿東西"))
         {
             Physics.IgnoreCollision(other, GetComponent<Collider>());
             other.GetComponent<HingeJoint>().connectedBody = rigCatch;
@@ -70,7 +70,7 @@ public class player : MonoBehaviour
 
     private void Catch()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         ani.SetTrigger("撿東西");
     }
 
